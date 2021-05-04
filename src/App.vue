@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <tab-bar-item/>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
+    <main-tab-bar/>
   </div>
 </template>
 
 <script>
-  import TabBarItem from "@/components/common/tabbaritem/TabBarItem"
+  import MainTabBar from "@/components/content/maintabbar/MainTabBar" 
+
   export default {
     name: 'app', 
-    components: {
-      TabBarItem
+    components: { 
+      MainTabBar
     }
   }
 </script>
