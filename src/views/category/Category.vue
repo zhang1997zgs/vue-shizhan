@@ -6,7 +6,6 @@
 
 <script>
 import NavBar from "@/components/common/navbar/NavBar"
-import axios from "axios"
 export default {
   name: 'Category', 
   components: { 
@@ -14,21 +13,8 @@ export default {
   }, 
   data() { 
     return { 
-      info: []
+      
     }
-  }, 
-  mounted () {
-    axios
-      .get('http://152.136.185.210:7878/api/m5/home/multidata')
-      .then(response => {
-        this.info = response.data.data.banner.list
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
-        this.errored = true
-      })
-      .finally(() => this.loading = false)
   }
 }
 </script>

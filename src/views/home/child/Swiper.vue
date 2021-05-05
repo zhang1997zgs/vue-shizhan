@@ -1,5 +1,6 @@
 <template>
-  <swiper 
+  <div>
+    <swiper 
     :slidesPerView="1" 
     :spaceBetween="30"
     :centeredSlides="true" 
@@ -12,15 +13,15 @@
       'clickable': true, 
       'dynamicBullets': true}" 
     :navigation="true" class="mySwiper">
-    <swiper-slide v-for='index in banners' :key='index'>
-      <div class='swiper-item' >
-        <a :href="index.link">
-        <img :src="index.image" alt="">
-      </a>
-      </div>
-    </swiper-slide>
-  </swiper>
-  
+      <swiper-slide v-for='index in banners' :key='index' >
+        <div class='swiper-item' >
+          <a :href="index.link">
+          <img :src="index.image" alt="">
+        </a>
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script>
@@ -35,33 +36,25 @@ import SwiperCore, { Autoplay,Pagination,Navigation } from 'swiper/core';
 // install Swiper modules
 SwiperCore.use([Autoplay,Pagination,Navigation]);
 
-import axios from "axios"
 export default {
   name: 'SwiperLike', 
+  props: { 
+    banners: { 
+      type: Array, 
+      default() { 
+        return []
+      }
+    }
+  }, 
   components: {
     Swiper,
     SwiperSlide,
   }, 
   data() { 
     return { 
-      banners: []
+      
     }
-  },
-  mounted () {
-    axios
-      .get('http://152.136.185.210:7878/api/m5/home/multidata')
-      .then(response => {
-        this.banners = response.data.data.banner.list
-      })
-      .catch(error => {
-        console.log(error)
-        this.errored = true
-      })
-      .finally(() => this.loading = false)
-  }, 
-  methods: {
-    
-  },
+  }
 }
 </script>
 
