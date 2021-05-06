@@ -1,7 +1,7 @@
 <template>
   <div id='home'>
     <nav-bar class='home-nav'><template #center>购物街</template></nav-bar>
-    <!-- <scroll> -->
+    <scroll>
       <home-swiper :banners='banners'/>
       <home-recommend :recommends='recommends'/>
       <home-feature/>
@@ -11,14 +11,14 @@
         ref='tabControl' 
         :titles="['流行', '新款', '精选']"/>
       <goods-list :goods='showGoodsList'/>
-    <!-- </scroll> -->
+    </scroll>
     
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/common/navbar/NavBar"
-// import Scroll from "@/components/common/scroll/Scroll"
+import Scroll from "@/components/common/scroll/Scroll"
 import HomeSwiper from "@/views/home/child/Swiper"
 import HomeRecommend from "@/views/home/child/Recommend"
 import HomeFeature from "@/views/home/child/Feature"
@@ -32,7 +32,7 @@ export default {
   name: 'Home', 
   components: { 
     NavBar, 
-    // Scroll, 
+    Scroll, 
     HomeSwiper, 
     HomeRecommend, 
     HomeFeature, 
@@ -108,8 +108,11 @@ export default {
           break
       }
 
-      this.$refs.contentTab.currentIndex = index
-    },
+      this.$refs.tabControl.currentIndex = index
+    }, 
+    loadMore() { 
+      this._getProductData(this.currentType)
+    }
   }, 
   mounted() { 
     
@@ -139,6 +142,7 @@ export default {
   }
 
   .content {
+    overflow: hidden;
     position: absolute;
     top: 44px;
     bottom: 49px;
