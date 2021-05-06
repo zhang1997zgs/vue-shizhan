@@ -29,7 +29,7 @@ export default {
     width: 100%;
     margin-top: 10px;
     font-size: 14px;
-    padding: 10px 0 20px;
+    padding: 10px 0 15px;
     padding-bottom: 20px;
     border-bottom: 10px solid #eee;
   }
@@ -40,8 +40,8 @@ export default {
   }
 
   .recommend img {
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     margin-bottom: 10px;
   }
 </style>

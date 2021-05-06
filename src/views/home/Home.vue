@@ -1,58 +1,24 @@
 <template>
   <div id='home'>
     <nav-bar class='home-nav'><template #center>购物街</template></nav-bar>
-    <scroll>
+    <!-- <scroll> -->
       <home-swiper :banners='banners'/>
       <home-recommend :recommends='recommends'/>
       <home-feature/>
-      <tab-control ref="contentTab" class="tab-control" @tabClick="tabClick"/>
+      <tab-control 
+        class="tab-control" 
+        @tabClick="tabClick" 
+        ref='tabControl' 
+        :titles="['流行', '新款', '精选']"/>
       <goods-list :goods='showGoodsList'/>
-      <router-view/>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </scroll>
+    <!-- </scroll> -->
     
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/common/navbar/NavBar"
-import Scroll from "@/components/common/scroll/Scroll"
+// import Scroll from "@/components/common/scroll/Scroll"
 import HomeSwiper from "@/views/home/child/Swiper"
 import HomeRecommend from "@/views/home/child/Recommend"
 import HomeFeature from "@/views/home/child/Feature"
@@ -66,7 +32,7 @@ export default {
   name: 'Home', 
   components: { 
     NavBar, 
-    Scroll, 
+    // Scroll, 
     HomeSwiper, 
     HomeRecommend, 
     HomeFeature, 

@@ -1,5 +1,5 @@
 <template>
-  <div class="goodlist">
+  <div class="goods-list">
     <goods-list-item 
       v-for='item in goods' 
       :key='item'
@@ -29,7 +29,7 @@ export default {
   .goods-list {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 2px;
     justify-content: space-around;
   }
 

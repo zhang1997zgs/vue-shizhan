@@ -1,6 +1,6 @@
 <template>
-  <div class="good-item">
-    <img @load="imgLoad" v-lazy="showImage" :key="showImage" alt="">
+  <div class="goods-item">
+    <img @load="imageLoad" :src="goodsItem.show.img" alt="">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -19,12 +19,7 @@ export default {
         return []
       }
     }
-  },
-  computed: {
-    showImage() {
-      return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
-    }
-  }
+  } 
 }
 </script>
 
@@ -72,6 +67,6 @@ export default {
     top: -1px;
     width: 14px;
     height: 14px;
-    /* background: url("@/assets/img/common/collect.svg") 0 0/14px 14px; */
+    background: url("../../../assets/img/common/collect.svg") 0 0/14px 14px;
   }
 </style>

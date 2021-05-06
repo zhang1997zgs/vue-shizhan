@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper" ref="wrapper">
-    <div>
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 
@@ -24,13 +22,14 @@ new BScroll('.wrapper',{
     swipeBounceTime: 500, 
     preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|AUDIO)$/}
 })
-export default { 
-
+export default {
+  name : 'Scroll'
 }
 </script>
 
 <style scoped>
   .wrapper{ 
+    height: 100%;
     overflow: hidden; 
   }
 </style>

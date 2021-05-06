@@ -14,7 +14,7 @@
       'dynamicBullets': true}" 
     :navigation="true" class="mySwiper">
       <swiper-slide v-for='index in banners' :key='index' >
-        <div class='swiper-item' >
+        <div class='swiper-item'>
           <a :href="index.link">
           <img :src="index.image" alt="">
         </a>
@@ -49,12 +49,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-  }, 
-  data() { 
-    return { 
-      
-    }
-  }
+  } 
 }
 </script>
 
@@ -77,7 +72,7 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 185px;
+  height: 167px;
 }
 
 .swiper-slide {

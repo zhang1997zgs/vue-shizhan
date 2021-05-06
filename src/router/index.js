@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/profile',
     component: () => import ('@/views/profile/Profile')
-  }
+  } 
 ]
 
 const router = createRouter({
