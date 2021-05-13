@@ -72,7 +72,8 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 167px;
+  /* height: 167px; */
+  display: flex;
 }
 
 .swiper-slide {

@@ -3,11 +3,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home', 
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/home',
-    component: () => import ('@/views/home/Home')
+    component: () => import ('@/views/home/Home'), 
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/category',
@@ -20,6 +26,10 @@ const routes = [
   {
     path: '/profile',
     component: () => import ('@/views/profile/Profile')
+  },
+  {
+    path: '/detail/:iid',
+    component: () => import ('@/views/detail/Detail')
   } 
 ]
 

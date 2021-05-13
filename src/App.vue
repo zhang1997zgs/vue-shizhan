@@ -1,8 +1,10 @@
 <template>
   <div id="app" class='wrapper'>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
     <main-tab-bar/>
   </div>
 </template>

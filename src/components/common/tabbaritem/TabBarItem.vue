@@ -43,7 +43,9 @@
 
 <style>
   .tab-bar-item {
-    flex: 1;
+    flex: 1; 
+    text-align: center;
+    height: 49px; 
     font-size: 14px;
   }
 
@@ -51,10 +53,7 @@
     width: 24px;
     height: 24px;
     margin-top: 5px;
-    vertical-align: middle;
-  }
-
-  /*.item-text.active {*/
-    /*color: #ff5777*/
-  /*}*/
+    vertical-align: middle; 
+    margin-bottom: 2px;
+  } 
 </style>

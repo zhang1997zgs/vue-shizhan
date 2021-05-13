@@ -1,6 +1,7 @@
 <template>
   <div id='category'>
     <nav-bar class='category-nav'><template #center>分类</template></nav-bar>
+    
   </div>
 </template>
 
