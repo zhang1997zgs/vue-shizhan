@@ -32,7 +32,7 @@
 <script>
 import NavBar from "@/components/common/navbar/NavBar"
 import Scroll from "@/components/common/scroll/Scroll"
-import HomeSwiper from "@/views/home/child/Swiper"
+import HomeSwiper from "@/views/home/child/HomeSwiper"
 import HomeRecommend from "@/views/home/child/Recommend"
 import HomeFeature from "@/views/home/child/Feature"
 import TabControl from "@/components/content/tabcontrol/TabControl"

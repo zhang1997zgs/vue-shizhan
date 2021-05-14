@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="detail-swiper">
+    <div>
     <swiper 
     :slidesPerView="1" 
     :spaceBetween="30"
@@ -13,14 +14,13 @@
       'clickable': true, 
       'dynamicBullets': true}" 
     :navigation="true" class="mySwiper">
-      <swiper-slide v-for='index in banners' :key='index' >
+      <swiper-slide v-for='index in topImages' :key='index' >
         <div class='swiper-item'>
-          <a :href="index.link">
-          <img :src="index.image" alt="">
-        </a>
+          <img :src="index" alt="">
         </div>
       </swiper-slide>
     </swiper>
+  </div>
   </div>
 </template>
 
@@ -35,11 +35,10 @@ import "swiper/components/navigation/navigation.min.css"
 import SwiperCore, { Autoplay,Pagination,Navigation } from 'swiper/core';
 // install Swiper modules
 SwiperCore.use([Autoplay,Pagination,Navigation]);
-
 export default {
-  name: 'SwiperLike', 
+  name: 'DetailSwiper', 
   props: { 
-    banners: { 
+    topImages: { 
       type: Array, 
       default() { 
         return []
@@ -72,7 +71,7 @@ body {
 
 .swiper-container {
   width: 100%;
-  /* height: 167px; */
+  height: 300px;
   display: flex;
 }
 
