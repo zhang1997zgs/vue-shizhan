@@ -39,6 +39,8 @@ import TabControl from "@/components/content/tabcontrol/TabControl"
 import GoodsList from '@/components/content/goods/GoodsList'
 import BackTop from '@/components/content/backtop/BackTop'
 
+
+import {debounce} from "@/common/utils"
 import { getMultiData, getProductData } from "@/network/home"
 
 export default {
@@ -75,14 +77,20 @@ export default {
     }
   }, 
   created() {
-      // 1.请求轮播等数据
-      this._getMultiData()
+    // 1.请求轮播等数据
+    this._getMultiData()
 
-      // 2.请求商品数据
-      this._getProductData('pop')
-      this._getProductData('new')
-      this._getProductData('sell')
-    }, 
+    // 2.请求商品数据
+    this._getProductData('pop')
+    this._getProductData('new')
+    this._getProductData('sell')
+  }, 
+  mounted() {
+    const refresh = debounce(this.$refs.scroll.refresh, 50)
+    this.emitter.on("itemImgLoad", () => {
+      refresh()
+    });
+  },
   methods: { 
     /**
      * 网络请求

@@ -67,12 +67,28 @@ export default {
     }
   }, 
   created() {
+    // 1.取出iid
     this.iid = this.$route.params.iid 
+    // console.log(this.iid)
+    // 2.发送商品请求
+    this._getDetail(this.iid)
 
-    getDetail(this.iid).then(res => { 
+    // 3.请求推荐请求
+    this._getRecommend()
+  }, 
+  methods: {
+    imageLoad() {
+      if(this.$refs.scroll){
+        this.$refs.scroll.refresh()
+      }
+      // 图片加载完后计算各个模块的高度
+      this.getthemeTopYs()
+    },
+    _getDetail(iid) { 
+      getDetail(iid).then(res => { 
       // 1.获取顶部的图片轮播数据
       const data = res.result
-      console.log(data);
+      // console.log(data);
       this.topImages = data.itemInfo.topImages
       // 2.获取商品信息
       this.goods = new Goods(data.itemInfo, data.columns, data.shopInfo.services) 
@@ -90,28 +106,21 @@ export default {
       //因为数据可能返回不过来，DOM可能没渲染，函数执行太多次（加了节流）
       // 放到图片加载完的响应事件函数中去执行
       this.getthemeTopYs = debounce(() => {
-          this.themeTopYs = []
+        this.themeTopYs = []
 
-          this.themeTopYs.push(0)
-          this.themeTopYs.push(this.$refs.params.$el.offsetTop)
-          this.themeTopYs.push(this.$refs.comment.$el.offsetTop)
-          this.themeTopYs.push(this.$refs.recommend.$el.offsetTop)
-          this.themeTopYs.push(Number.MAX_VALUE)
+        this.themeTopYs.push(0)
+        this.themeTopYs.push(this.$refs.params.$el.offsetTop)
+        this.themeTopYs.push(this.$refs.comment.$el.offsetTop)
+        this.themeTopYs.push(this.$refs.recommend.$el.offsetTop)
+        this.themeTopYs.push(Number.MAX_VALUE)
         }, 100)
       })
-
+    }, 
+    _getRecommend() { 
       getRecommend().then(res => { 
         this.recommends = res.data.list
       })
-  }, 
-  methods: {
-    imageLoad() {
-      if(this.$refs.scroll){
-        this.$refs.scroll.refresh()
-      }
-      // 图片加载完后计算各个模块的高度
-      this.getthemeTopYs()
-    },
+    }, 
     titleClick(index) {
       this.$refs.scroll.scrollTo(0, -this.themeTopYs[index], 200)
     },
