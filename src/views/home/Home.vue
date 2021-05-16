@@ -9,12 +9,14 @@
       @tabClick="tabClick"
       ref="tabControl1"
       v-show="isTabFixed"/>
-    <scroll class="content"
-            ref="scroll"
-            :probe-type="3"
-            @scroll="contentScroll"
-            :pull-up-load="true"
-            @pullingUp="loadMore">
+    <scroll 
+      class="content"
+      ref="scroll"
+      :probe-type="3"
+      @scroll="contentScroll"
+      :pull-up-load="true"
+      @pullingUp="loadMore"
+    >
       <home-swiper :banners='banners'/>
       <home-recommend :recommends='recommends'/>
       <home-feature/>
@@ -22,7 +24,8 @@
         class="tab-control" 
         @tabClick="tabClick" 
         ref='tabControl2' 
-        :titles="['流行', '新款', '精选']"/>
+        :titles="['流行', '新款', '精选']"
+      />
       <goods-list :goods='showGoodsList'/>
     </scroll>
     <back-top @click='backClick' v-show='isShowBackTop'/>
