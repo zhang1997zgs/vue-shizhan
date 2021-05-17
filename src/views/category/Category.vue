@@ -137,7 +137,17 @@ export default {
      * 事件响应相关的方法
      */
     tabClick(index) {
-      this._getSubcategories(index)
+      switch (index) {
+        case 0:
+          this.currentType = 'pop'
+          break
+        case 1:
+          this.currentType = 'new'
+          break
+        case 2:
+          this.currentType = 'sell'
+          break
+      }
     }, 
     selectItem(index) {
       this._getSubcategories(index)
